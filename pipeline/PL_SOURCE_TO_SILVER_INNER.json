@@ -163,9 +163,16 @@
 				}
 			},
 			{
-				"name": "Landing to Bronze_copy1",
+				"name": "Bronze to Silver",
 				"type": "DatabricksNotebook",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Landing to Bronze",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -175,14 +182,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/raykaustav22@gmail.com/csresync-repo/caresync-adb-repo/Landing_to_Bronze",
+					"notebookPath": "/Users/raykaustav22@gmail.com/csresync-repo/caresync-adb-repo/Bronze_to_Silver",
 					"baseParameters": {
-						"source_system": {
-							"value": "@activity('Read table details').output.firstRow.source_system",
-							"type": "Expression"
-						},
 						"table_name": {
-							"value": "@activity('Read table details').output.firstRow.bronze_table_name",
+							"value": "@activity('Read table details').output.firstRow.silver_table_name",
 							"type": "Expression"
 						},
 						"landing_timestamp": {
