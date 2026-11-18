@@ -53,6 +53,8 @@
 						{
 							"name": "Ingest from Source to Sillver",
 							"type": "ExecutePipeline",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Failed",
 							"dependsOn": [
 								{
 									"activity": "Insert In Progress Status",
@@ -115,6 +117,8 @@
 						{
 							"name": "Update failled status",
 							"type": "Script",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "Ingest from Source to Sillver",
