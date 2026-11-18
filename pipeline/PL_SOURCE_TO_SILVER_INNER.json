@@ -394,7 +394,11 @@
 				"typeProperties": {
 					"scripts": [
 						{
-							"type": "Query"
+							"type": "Query",
+							"text": {
+								"value": "@concat(\n    'INSERT INTO ctrl.audit_log ',\n    '(adf_run_id, table_id, stage, status, start_time) ',\n    'VALUES (''',\n    pipeline().parameters.adf_run_id,\n    ''', ',\n    string(pipeline().parameters.table_id),\n    ', ''SOURCE_TO_SILVER'', ''STARTED'', SYSUTCDATETIME())'\n)",
+								"type": "Expression"
+							}
 						}
 					],
 					"scriptBlockExecutionTimeout": "02:00:00"
