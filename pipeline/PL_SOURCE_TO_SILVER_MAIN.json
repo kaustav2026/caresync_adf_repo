@@ -140,7 +140,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "@concat(\n'UPDATE ctrl.audit_log SET status = ''FAILED'', ',\n'end_time = SYSUTCDATETIME() ',\n'WHERE adf_run_id = ''',\npipeline().parameters.adf_run_id,\n''' AND table_id = ',\nstring(item().table_id),\n';'\n)",
+											"value": "@concat(\n'UPDATE ctrl.audit_log SET status = ''FAILED'', ',\n'end_time = SYSUTCDATETIME() ',\n'WHERE adf_run_id = ''',\npipeline().RunId,\n''' AND table_id = ',\nstring(item().table_id),\n';'\n)",
 											"type": "Expression"
 										}
 									}
@@ -160,11 +160,6 @@
 			"adf_run_id": {
 				"type": "string",
 				"defaultValue": "@pipeline().RunId"
-			}
-		},
-		"variables": {
-			"test": {
-				"type": "String"
 			}
 		},
 		"annotations": []
