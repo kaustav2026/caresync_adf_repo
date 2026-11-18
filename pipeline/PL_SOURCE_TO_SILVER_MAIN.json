@@ -106,7 +106,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "@concat(\n'INSERT INTO ctrl.audit_log ',\n'(adf_run_id, table_id, stage, status, start_time) ',\n'VALUES (''',\npipeline().parameters.adf_run_id,\n''', ',\nstring(item().table_id),\n', ''SOURCE_TO_SILVER'', ''IN_PROGRESS'', SYSUTCDATETIME())'\n)",
+											"value": "@concat(\n'INSERT INTO ctrl.audit_log ',\n'(adf_run_id, table_id, stage, status, start_time) ',\n'VALUES (''',\npipeline().RunId,\n''', ',\nstring(item().table_id),\n', ''SOURCE_TO_SILVER'', ''IN_PROGRESS'', SYSUTCDATETIME())'\n)",
 											"type": "Expression"
 										}
 									}
